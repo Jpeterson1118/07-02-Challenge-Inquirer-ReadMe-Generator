@@ -88,13 +88,13 @@ function renderLicenseLink(license) {
       case "Boost Software License 1.0":
         return "https://www.boost.org/users/license.html"
       case "BSD 3-Clause License":
-        return
+        return "https://opensource.org/license/bsd-3-clause"
       case "BSD 2-Clause License":
-        return
+        return "https://opensource.org/license/bsd-2-clause"
       case "CC0":
-        return
+        return "https://creativecommons.org/public-domain/cc0/"
       case "Attribution 4.0 International":
-        return
+        return "https://creativecommons.org/licenses/by/4.0/deed.en"
       case "Attribution-ShareAlike 4.0 International":
         return
       case "Attribution-NonCommercial 4.0 International":
@@ -195,13 +195,42 @@ function renderLicenseSection(license) {
         ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
         DEALINGS IN THE SOFTWARE.`
       case "BSD 3-Clause License":
-        return
+        return `Copyright <YEAR> <COPYRIGHT HOLDER>
+
+        Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+        1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+        2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+        3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`
       case "BSD 2-Clause License":
-        return
+        return `Copyright <YEAR> <COPYRIGHT HOLDER>
+
+        Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+        1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+        2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`
       case "CC0":
-        return
+        return `No Rights Reserved`
       case "Attribution 4.0 International":
-        return
+        return `You are free to:
+        Share — copy and redistribute the material in any medium or format for any purpose, even commercially.
+        Adapt — remix, transform, and build upon the material for any purpose, even commercially.
+        The licensor cannot revoke these freedoms as long as you follow the license terms.
+        Under the following terms:
+        Attribution — You must give appropriate credit , provide a link to the license, and indicate if changes were made . You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+        No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+        Notices:
+        You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation .
+
+        No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.`
       case "Attribution-ShareAlike 4.0 International":
         return
       case "Attribution-NonCommercial 4.0 International":
@@ -259,8 +288,48 @@ function renderLicenseSection(license) {
 }
 
 // TODO: Create a function to generate markdown for README
+//  Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
 function generateMarkdown(data) {
   return `# ${data.title}
+  ${renderLicenseBadge(data.license)}
+
+  ## Description
+
+  ${data.description}
+
+  ## Table of Contents
+
+  - [Installation](#installation})
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [tests](#tests)
+  - [Questions](#questions)
+
+  ## Installation
+
+  ${data.instalation}
+
+  ## Usage
+  ${data.instructions}
+
+  ## ${data.license}
+
+  ${renderLicenseSection(data.license)}
+
+  ${renderLicenseLink(data.license)}
+
+  ## Contributing
+
+  ${data.guidelines}
+
+  ## Tests
+
+  ${data.test}
+
+  ## Questions
+
+  For questions please contact us at https://github.com/${data.questions1} or at ${data.questions2}.
 
 `;
 }
