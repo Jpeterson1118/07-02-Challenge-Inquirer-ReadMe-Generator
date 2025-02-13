@@ -54,3 +54,9 @@
 
   For questions please contact us at https://github.com/jpeterson1118 or at peterson.jacob13@protonmail.com.
 
+  ## Sources
+  License badges courtesy of lukas-h 
+  https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
+
+  license text taken from respective organization websites.
+
