@@ -20,6 +20,9 @@
 
   ## Usage
   Simply call node index.js from within the application directory in your command prompt. Follow the instructions displayed on the screen and the program will output a README file with the same name as the tile you enter when prompted.
+  
+  ### Video Walkthrough
+  https://drive.google.com/file/d/1E7g1PjM4llnuJPrg35wK3twKNUmC_q4I/view?usp=drive_link
 
   ## Apache 2.0 License
 
